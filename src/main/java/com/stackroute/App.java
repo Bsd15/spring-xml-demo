@@ -26,5 +26,8 @@ public class App
         Movie protypeMovie2 = context.getBean("prototypeMovie2", Movie.class);
         System.out.println("Movie 1: " + protypeMovie2.toString());
         System.out.println("Movie 1 == Movie 2 (Beans of scope prototype): " + (protypeMovie1 == protypeMovie2));
+//        Creating bean for Movie with AutoWire(byType)
+        Movie movieAutoWireByType = context.getBean("movieAutoWireByType", Movie.class);
+        System.out.println("Movie Autowire byType: " + movieAutoWireByType.toString());
     }
 }

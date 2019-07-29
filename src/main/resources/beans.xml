@@ -3,19 +3,26 @@
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-
+<!--Using AutoWire for movies to get the dependencies-->
     <bean id="movie"
-          class="com.stackroute.domain.Movie">
-        <constructor-arg index="0"
-                         ref="actor1"/>
+          class="com.stackroute.domain.Movie" autowire="byName">
+<!--        <constructor-arg index="0"
+                         ref="actor1"/>-->
+    </bean>
+
+<!--    Using AutoWire byType-->
+    <bean id="movieAutoWireByType"
+          class="com.stackroute.domain.Movie"
+          autowire="byType">
+
     </bean>
 
     <!--    Prototype bean Movie-->
     <bean name="prototypeMovie1, prototypeMovie2"
           class="com.stackroute.domain.Movie"
-          scope="prototype">
-        <constructor-arg index="0"
-                         ref="actor2"/>
+          scope="prototype" autowire="byName">
+<!--        <constructor-arg index="0"
+                         ref="actor2"/>-->
     </bean>
 
     <!--    Actor 1 -->

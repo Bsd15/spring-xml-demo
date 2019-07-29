@@ -5,14 +5,14 @@ import org.springframework.beans.factory.InitializingBean;
 public class BeanLifecycleDemoBean implements InitializingBean {
 
     /**
-     * Method to be called while Initializing bean
+     * Method to be called after Initializing bean
      */
     public void customInit() {
         System.out.println("Initializing bean");
     }
 
     /**
-     * Method to be called while Destroying bean
+     * Method to be called after Destroying bean
      */
     public void customDestroy() {
         System.out.println("Destroyed Bean");

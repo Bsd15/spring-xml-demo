@@ -3,67 +3,11 @@
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-    <!--Using AutoWire for movies to get the dependencies-->
-    <bean id="movie"
-          class="com.stackroute.domain.Movie" autowire="byName">
-        <!--        <constructor-arg index="0"
-                                 ref="actor1"/>-->
-    </bean>
-
-    <!--    Using AutoWire byType-->
-    <bean id="movieAutoWireByType"
-          class="com.stackroute.domain.Movie">
-        <!--        Fixed AutoWire byType and added constructor injection-->
-        <constructor-arg index="0"
-                         ref="actor1"/>
-    </bean>
-
-    <!--    Prototype bean Movie-->
-    <bean name="prototypeMovie1, prototypeMovie2"
-          class="com.stackroute.domain.Movie"
-          scope="prototype" autowire="byName">
-        <!--        <constructor-arg index="0"
-                                 ref="actor2"/>-->
-    </bean>
-
-    <!--    Actor 1 -->
-    <bean id="actor1"
-          class="com.stackroute.domain.Actor">
-        <constructor-arg index="0"
-                         value="Actor 1"/>
-        <constructor-arg index="1"
-                         value="Female"/>
-        <constructor-arg index="2"
-                         value="27"/>
-    </bean>
-
-    <!--    Actor 2 -->
-    <bean id="actor2"
-          class="com.stackroute.domain.Actor">
-        <constructor-arg index="0"
-                         value="Actor 2"/>
-        <constructor-arg index="1"
-                         value="Male"/>
-        <constructor-arg index="2"
-                         value="53"/>
-    </bean>
-
-    <!--    Actor 3 -->
-    <bean id="actor3"
-          class="com.stackroute.domain.Actor">
-        <constructor-arg index="0"
-                         value="Actor 3"/>
-        <constructor-arg index="1"
-                         value="Female"/>
-        <constructor-arg index="2"
-                         value="38"/>
-    </bean>
-
-    <!--    BeanLifeCycleDemo-->
-    <bean id="beanLifeCycleDemo"
+    <!--BeanLifeCycleDemo-->
+    <bean id="beanLifecycleDemoBean"
           class="com.stackroute.demo.BeanLifecycleDemoBean"
           init-method="customInit"
-          destroy-method="customDestroy">
-
-    </bean>
+          destroy-method="customDestroy"/>
+    <!--BeanPostProcessorDemoBean-->
+    <bean class="com.stackroute.demo.BeanPostProcessorDemoBean"/>
 </beans>

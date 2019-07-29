@@ -15,7 +15,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         Movie movie1 = context.getBean("movie", Movie.class);
         System.out.println("Movie 1: " + movie1.toString());
         Movie movie2 = context.getBean("movie", Movie.class);
@@ -29,5 +29,6 @@ public class App
 //        Creating bean for Movie with AutoWire(byType)
         Movie movieAutoWireByType = context.getBean("movieAutoWireByType", Movie.class);
         System.out.println("Movie Autowire byType: " + movieAutoWireByType.toString());
+        context.close();
     }
 }

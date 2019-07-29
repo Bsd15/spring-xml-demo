@@ -16,8 +16,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         BeanLifecycleDemoBean beanLifecycleDemoBean = context.getBean("beanLifeCycleDemo", BeanLifecycleDemoBean.class);
-
+        context.close();
     }
 }

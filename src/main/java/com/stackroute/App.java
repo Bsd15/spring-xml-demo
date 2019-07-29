@@ -15,15 +15,16 @@ public class App
 {
     public static void main( String[] args )
     {
-//        Get Movie through XMLBeanFactory
-        XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
-        Movie movieThroughXmlBeanFactory = xmlBeanFactory.getBean("movie", Movie.class);
-        System.out.println("Movie through XmlBeanFactory: " + movieThroughXmlBeanFactory);
-
-//        Get Movie through AppilicationContext
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie = context.getBean("movie", Movie.class);
-        System.out.println(movie.toString());
-
+        Movie movie1 = context.getBean("movie", Movie.class);
+        System.out.println("Movie 1: " + movie1.toString());
+        Movie movie2 = context.getBean("movie", Movie.class);
+        System.out.println("Movie 2: " + movie2.toString());
+        System.out.println("Movie 1 == Movie 2: " + (movie1 == movie2));
+        Movie protypeMovie1 = context.getBean("prototypeMovie1", Movie.class);
+        System.out.println("Movie 1: " + protypeMovie1.toString());
+        Movie protypeMovie2 = context.getBean("prototypeMovie2", Movie.class);
+        System.out.println("Movie 1: " + protypeMovie2.toString());
+        System.out.println("Movie 1 == Movie 2 (Beans of scope prototype): " + (protypeMovie1 == protypeMovie2));
     }
 }

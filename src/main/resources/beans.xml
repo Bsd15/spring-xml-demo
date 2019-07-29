@@ -3,17 +3,17 @@
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-<!--Using AutoWire for movies to get the dependencies-->
+    <!--Using AutoWire for movies to get the dependencies-->
     <bean id="movie"
           class="com.stackroute.domain.Movie" autowire="byName">
-<!--        <constructor-arg index="0"
-                         ref="actor1"/>-->
+        <!--        <constructor-arg index="0"
+                                 ref="actor1"/>-->
     </bean>
 
-<!--    Using AutoWire byType-->
+    <!--    Using AutoWire byType-->
     <bean id="movieAutoWireByType"
           class="com.stackroute.domain.Movie">
-<!--        Fixed AutoWire byType and added constructor injection-->
+        <!--        Fixed AutoWire byType and added constructor injection-->
         <constructor-arg index="0"
                          ref="actor1"/>
     </bean>
@@ -22,8 +22,8 @@
     <bean name="prototypeMovie1, prototypeMovie2"
           class="com.stackroute.domain.Movie"
           scope="prototype" autowire="byName">
-<!--        <constructor-arg index="0"
-                         ref="actor2"/>-->
+        <!--        <constructor-arg index="0"
+                                 ref="actor2"/>-->
     </bean>
 
     <!--    Actor 1 -->
@@ -57,5 +57,13 @@
                          value="Female"/>
         <constructor-arg index="2"
                          value="38"/>
+    </bean>
+
+    <!--    BeanLifeCycleDemo-->
+    <bean id="beanLifeCycleDemo"
+          class="com.stackroute.demo.BeanLifecycleDemoBean"
+          init-method="customInit"
+          destroy-method="customDestroy">
+
     </bean>
 </beans>

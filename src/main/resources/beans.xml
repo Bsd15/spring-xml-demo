@@ -12,9 +12,10 @@
 
 <!--    Using AutoWire byType-->
     <bean id="movieAutoWireByType"
-          class="com.stackroute.domain.Movie"
-          autowire="byType">
-
+          class="com.stackroute.domain.Movie">
+<!--        Fixed AutoWire byType and added constructor injection-->
+        <constructor-arg index="0"
+                         ref="actor1"/>
     </bean>
 
     <!--    Prototype bean Movie-->
